@@ -19,8 +19,16 @@ struct node {
 	int digit1;
 	int digit2;
 	struct node *next;
-};
+}*temp;
 
 int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+	int i = 0, n1, n2;
+	for (temp = head; temp != NULL; temp = temp->next)
+	{
+		n1 = temp->digit1;
+		n2 = temp->digit2;
+		i = (i * 10) + n1;
+		i = (i * 10) + n2;
+	}
+	return i;
 }
