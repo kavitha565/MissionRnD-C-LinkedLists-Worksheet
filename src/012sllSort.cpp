@@ -22,22 +22,18 @@ struct node {
 };
 void sll_012_sort(struct node *head){
 
-	int i = 0, count[3] = { 0 };
-	struct node *temp;
-	for (temp = head; temp != NULL; temp = temp->next)
+	int i;
+	struct node *temp1, *temp2;
+	for (temp1 = head; temp1 != NULL; temp1 = temp1->next)
 	{
-		count[temp->data]++;
-	}
-	temp = head;
-	while (temp != NULL)
-	{
-		if (count[i] == 0)
-			++i;
-		else
+		for (temp2 = temp1->next; temp2 != NULL; temp2 = temp2->next)
 		{
-			temp->data = i;
-			count[i]--;
-			temp = temp->next;
+			if ((temp1->data)>(temp2->data))
+			{
+				i = temp1->data;
+				temp1->data = temp2->data;
+				temp2->data = i;
+			}
 		}
 	}
 }
